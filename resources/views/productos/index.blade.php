@@ -27,13 +27,13 @@
                     <p class="card-category">Productos registrados</p>
                   </div>
                   <div class="card-body">
-                    @if (auth()->user()->roles()->first()->id == PR_ROL_ADMINISTRADOR_ID)
+                    @can('producto_create')
                     <div class="row">
                       <div class="col-12 text-right">
                         <a href="{{ route('productos.create') }}" class="btn btn-sm btn-primary">Añadir producto</a>
                       </div>
                     </div>
-                    @endif
+                    @endcan
                     <div class="table-responsive">
                       <table class="table">
                         <thead class="text-primary">
