@@ -26,11 +26,11 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        dd('tammy');
-        // abort_if(Gate::denies('role_create'), 403);
-        // $permissions = Permission::all()->pluck('name','id');
         
-        // return view('roles.create', compact('permissions'));
+        abort_if(Gate::denies('role_create'), 403);
+        $permissions = Permission::all()->pluck('name','id');
+        
+        return view('roles.create', compact('permissions'));
     }
 
     /**
